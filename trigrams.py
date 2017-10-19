@@ -36,6 +36,11 @@ def write_madness(word1, word2, num_words=20):
         paragraph.append(to_be_added)
     print(paragraph)
 
+def write_story(output_file, new_story):
+    new_file = open(output_file, 'w')
+    write(new_story)
+    new_file.close()
+
 
 
 create_dict(my_string)
