@@ -36,6 +36,15 @@ def write_madness(word1, word2, num_words=50):
     paragraph = " ".join(paragraph)
     print(paragraph)
 
-#create_dict(my_string)
-create_dict(read_file('test_text.txt'))
-write_madness("Just", "then")
+
+def write_story(output_file, new_story):
+    new_file = open(output_file, 'w')
+    write(new_story)
+    new_file.close()
+
+
+
+create_dict(my_string)
+#create_dict(read_file('test_text.txt'))
+write_madness("It", "was")
+
