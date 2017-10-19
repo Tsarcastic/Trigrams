@@ -26,15 +26,16 @@ def create_dict(file_name):
         #print(item + " ---- " + str(the_sequence[item]))
 
 
-def write_madness(word1, word2, num_words=20):
-    first_words = word1 + " " + word2
+def write_madness(word1, word2, num_words=50):
     paragraph = [word1, word2]
     #print(paragraph[-2] + " " + paragraph[-1])
     for x in range(num_words):
         new = paragraph[-2] + " " + paragraph[-1]
         to_be_added = random.choice(the_sequence[new])
         paragraph.append(to_be_added)
+    paragraph = " ".join(paragraph)
     print(paragraph)
+
 
 def write_story(output_file, new_story):
     new_file = open(output_file, 'w')
@@ -46,3 +47,4 @@ def write_story(output_file, new_story):
 create_dict(my_string)
 #create_dict(read_file('test_text.txt'))
 write_madness("It", "was")
+
