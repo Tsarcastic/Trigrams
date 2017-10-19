@@ -13,6 +13,7 @@ def read_file(text_file, result_file=None):
 
 
 def create_dict(file_name):
+    """This function creates a dictionary from the submitted file."""
     new_string = file_name.split()
     for index, item in enumerate(new_string):
         if index < len(new_string) - 2:
@@ -27,24 +28,27 @@ def create_dict(file_name):
 
 
 def write_madness(word1, word2, num_words=50):
+    """This function creates a story from the dictionary at an inputed length"""
     paragraph = [word1, word2]
     #print(paragraph[-2] + " " + paragraph[-1])
     for x in range(num_words):
         new = paragraph[-2] + " " + paragraph[-1]
         to_be_added = random.choice(the_sequence[new])
         paragraph.append(to_be_added)
-    paragraph = " ".join(paragraph)
+    #paragraph = " ".join(paragraph)
     print(paragraph)
 
 
 def write_story(output_file, new_story):
+    """This function will write a new file with the created story."""
     new_file = open(output_file, 'w')
     write(new_story)
     new_file.close()
 
 
 
-create_dict(my_string)
-#create_dict(read_file('test_text.txt'))
-write_madness("It", "was")
+#create_dict(my_string)
+create_dict(read_file('test_text.txt'))
+write_madness("so", "she")
+#write_story(NewStory.txt, new_story)
 
