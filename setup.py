@@ -4,6 +4,7 @@ from setuptools import setup
 setup (
     name='Trigrams',
     description='Takes in a source text, then creates a dictionary from the text to create new text.',
+    author='Brendan Davis and Phil Werner'
     package_dir={'': 'src'},
     py_modules=['Trigrams'],
     install_requires=[],
