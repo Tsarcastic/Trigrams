@@ -1,12 +1,10 @@
 """This module reads a file then uses predictive text to write a sample."""
 import random
+import sys
 my_string = """It was the best of times. It was the blerst of times."""
 the_sequence = {}
-TEST_FILE = 'test_text.txt'
 INPUT_FILE = 'input_text.txt'
 
-def test(word):
-    return word
 
 def read_file(text_file):
     """The function will open the text file to be read."""
@@ -45,8 +43,13 @@ def write_file(output_file, new_story):
     new_file.write(new_story)
     new_file.close()
 
+# create_dict(my_string)
+create_dict(read_file('input_text.txt'))
+# write_madness("so", "she")
+write_file('NewStory.txt', write_madness("so", "she"))
 
-#create_dict(my_string)
-#create_dict(read_file('test_text.txt'))
-#write_madness("so", "she")
-#write_file('NewStory.txt', write_madness("so", "she"))
+#if __name__ == '__main__':
+    #y = read_file(sys.argv[1])  
+    #x = write_madness("so", "she", sys.argv[2])
+    #print(
+    #write_file('stdout.txt', write_madness("so", "she", int(sys.argv[2]))) 
