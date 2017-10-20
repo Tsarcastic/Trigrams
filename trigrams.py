@@ -6,7 +6,7 @@ the_sequence = {}
 
 def read_file(text_file, result_file=None):
     """This function will open the text file to be read."""
-    the_file = open(text_file, 'r')
+    the_file = open(text_file, 'r', encoding="utf8")
     data = the_file.read()
     the_file.close()
     return data
@@ -35,20 +35,20 @@ def write_madness(word1, word2, num_words=50):
         new = paragraph[-2] + " " + paragraph[-1]
         to_be_added = random.choice(the_sequence[new])
         paragraph.append(to_be_added)
-    #paragraph = " ".join(paragraph)
-    print(paragraph)
+    paragraph = " ".join(paragraph)
+    return paragraph
 
 
-def write_story(output_file, new_story):
+def write_file(output_file, new_story):
     """This function will write a new file with the created story."""
     new_file = open(output_file, 'w')
-    write(new_story)
+    new_file.write(new_story)
     new_file.close()
 
 
 
 #create_dict(my_string)
 create_dict(read_file('test_text.txt'))
-write_madness("so", "she")
-#write_story(NewStory.txt, new_story)
+#write_madness("so", "she")
+write_file('NewStory.txt', write_madness("so", "she"))
 
