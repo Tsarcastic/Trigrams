@@ -48,6 +48,6 @@ write_file('NewStory.txt', write_madness("so", "she"))
 
 if __name__ == '__main__':
     print(sys.argv[1])
-    create_dict(read_file(sys.argv[1])) 
+    create_dict(read_file(sys.argv[1]))
     x = write_madness("so", "she", int(sys.argv[2]))
-    write_file('stdout.txt', x) 
+    write_file('stdout.txt', x)
