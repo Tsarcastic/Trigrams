@@ -35,7 +35,7 @@ def write_madness(word1, word2, num_words=50):
         new = paragraph[-2] + " " + paragraph[-1]
         to_be_added = random.choice(the_sequence[new])
         paragraph.append(to_be_added)
-    #paragraph = " ".join(paragraph)
+    paragraph = " ".join(paragraph)
     print(paragraph)
 
 
