@@ -36,19 +36,19 @@ def write_madness(word1, word2, num_words=50):
         to_be_added = random.choice(the_sequence[new])
         paragraph.append(to_be_added)
     paragraph = " ".join(paragraph)
-    print(paragraph)
+    return paragraph
 
 
-def write_story(output_file, new_story):
+def write_file(output_file, new_story):
     """This function will write a new file with the created story."""
     new_file = open(output_file, 'w')
-    write(new_story)
+    new_file.write(new_story)
     new_file.close()
 
 
 
 #create_dict(my_string)
 create_dict(read_file('test_text.txt'))
-write_madness("so", "she")
-#write_story(NewStory.txt, new_story)
+#write_madness("so", "she")
+write_file('NewStory.txt', write_madness("so", "she"))
 
