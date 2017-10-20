@@ -6,7 +6,7 @@ the_sequence = {}
 
 def read_file(text_file, result_file=None):
     """This function will open the text file to be read."""
-    the_file = open(text_file, 'r')
+    the_file = open(text_file, 'r', encoding="utf8")
     data = the_file.read()
     the_file.close()
     return data
