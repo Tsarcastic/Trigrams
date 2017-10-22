@@ -43,9 +43,14 @@ def write_file(output_file, new_story):
     new_file.write(new_story)
     new_file.close()
 
+
+def main(file, words):  # pragma: no cover
+    """The whole enchilada from start to finish."""
+    create_dict(read_file(file))
+    x = write_madness("so", "she", int(words))
+    write_file('stdout.txt', x)
+
 create_dict(read_file('test_text.txt'))
 
 if __name__ == '__main__':
-    create_dict(read_file(sys.argv[1]))
-    x = write_madness("so", "she", int(sys.argv[2]))
-    write_file('stdout.txt', x)
+    main(sys.argv[1], sys.argv[2])
