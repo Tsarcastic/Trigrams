@@ -43,8 +43,7 @@ def write_file(output_file, new_story):
     new_file.write(new_story)
     new_file.close()
 
-create_dict(read_file('input_text.txt'))
-write_file('NewStory.txt', write_madness("so", "she"))
+create_dict(read_file('test_text.txt'))
 
 if __name__ == '__main__':
     create_dict(read_file(sys.argv[1]))
