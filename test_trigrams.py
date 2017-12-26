@@ -1,35 +1,57 @@
 """For testing trigrams.py."""
 import pytest
+from trigrams import main
 
 
-def test_read_file():
-    """The function tests that input file has more than 500 chars."""
-    from trigrams import read_file
-    assert len(read_file('input_text.txt')) > 500
+def test_open_file():
+    """Test that a file can be open."""
+    main('test_text.txt', 1)
 
 
-def test_new_string():
-    """The function tests that new_string splits input text."""
-    from trigrams import read_file, create_dict, the_sequence
-    create_dict(read_file('input_text.txt'))
-    assert len(the_sequence) > 1
+def test_for_0_word_return():
+    """Test that no words are returned when words is 0."""
+    assert main('test_text.txt', 0) == ''
 
 
-def test_dic_key():
-    """The function tests that keys are being made in pairs."""
-    from trigrams import read_file, create_dict, the_sequence
-    x = read_file('test_text.txt')
-    create_dict(x)
-    assert len(the_sequence) > 0
+SPLIT_STR = [('a', ['a']), ('a d', ['a', 'd']), ('a\nd', ['a', 'd'])]
 
 
-def test_the_sequence():
-    """Will test kv pairs are being appended to the dictionary."""
-    from trigrams import the_sequence
-    assert len(the_sequence) > 0
+@pytest.mark.parametrize('text, result', SPLIT_STR)
+def test_text_to_list(text, result):
+    """Test that book_to_list splits text into list."""
+    from trigrams import book_to_list
+    assert book_to_list(text) == result
 
 
-def test_write_madness():
-    """Will test that a new paragraph is being written."""
-    from trigrams import write_madness
-    assert len(write_madness('so', 'she')) > 2
+DICT_TEST = [(['any', 'thing', 'else'], {'any thing': ['else']}),
+             (['I', 'wish', 'I', 'may', 'I', 'wish', 'I', 'might'],
+             {'I wish': ['I', 'I'], 'wish I':['may', 'might'],
+              'may I':['wish'], 'I may':['I']
+              }
+              )]
+
+
+@pytest.mark.parametrize('words_list,result', DICT_TEST)
+def test_make_dict(words_list, result):
+    """Test with list_to_dict for first two words as key and third as value."""
+    from trigrams import list_to_dict
+    assert list_to_dict(words_list) == result
+
+
+STR_LENGTH = [({'any thing': ['else']}, 0),
+              ({'any thing': ['else']}, 1),
+              ({'I wish': ['I', 'I'], 'wish I':['may', 'might'],
+                'may I':['wish'], 'I may':['I']}, 10)]
+
+
+@pytest.mark.parametrize('words_dict, num_word', STR_LENGTH)
+def test_dictionary_to_string(words_dict, num_word):
+    """Test for length of string from dictionary."""
+    from trigrams import dictionary_to_string
+    assert len(dictionary_to_string(words_dict, num_word).split()) == num_word
+
+
+def test_empty_dictionary_for_words():
+    """Test for empty string from empty dictionary."""
+    from trigrams import dictionary_to_string
+    assert dictionary_to_string({}, 10) == ''
