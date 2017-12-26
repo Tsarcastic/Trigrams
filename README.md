@@ -7,10 +7,13 @@
 This program allows a user to input a string of text of their choosing, it uses predictive test to write a new string. It will then create a dictionary from the inputed text with two words as the keys and the word(s) that follow those keys as the value. The program will then take that dictionary and key input from the user to then randomly generate a 'new story' at the desired length as inputed by the user.
 
 ## Getting Started
-1. You will need to create a function that takes in a text file and reads the file.
-2. Next you will need a function that goes through the string and creates the dictionary.
-3. Next you will need a function that accepts keys from the dictionary to cycle through and generate a new string.
-4. Finally you will need a function that writes that string to a new text file.
+The Trigrams app can be run directly from the trigrams.py file.
+
+OR
+
+You can run it from the command line while at the root level.
+
+``` python trigrams.py inout_text.txt 500 > my_submission.txt```
 
 ## Architecture
 This program uses the random and sys libraries. Big part of program is the opening and reading of inputed .txt files as well as the saving of new .txt files
